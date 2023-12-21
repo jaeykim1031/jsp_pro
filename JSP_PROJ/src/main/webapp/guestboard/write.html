@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 방명록 만들기 </title>
+</head>
+<body>
+	<center>
+	<h2>= 간단한 방명록 =</h2>
+	<hr>
+	<!-- 
+		MVC Model 1 개발 -> 개인 개발, 50 페이지 내외, 사이트 규모가 커지면 유지 보수가 힘듦
+							빠른 개발, 중복 코드 계속 발생, JSP <% 자바 코드 %>
+							jsp : html + Java
+							
+		MVC Model 2 개발 ->  jsp : html + Java(최소)
+					디자이너 & 개발자 분업, 협업
+					빠른 개발이 어려울 수 있음. 유지 보수하기 쉬움. 중복 코드 방지 가능
+					
+					
+	form : 클라의 값을 받아서 서버로 전송해주는 태그
+			- name : 변수면
+			- method - post : http 헤더 앞에 변수와 값을 전송, 무제한
+						get : http URL에 변수 = 값, 변수 = 값 형태로 서버에 전송
+								- URL에 변수와 같이 노출 됨, 보안에 약함.
+								- 최대 255byte
+			- action : 서버에 호출할 페이지
+			- input, textarea - 반드시 form 블록 안에 위치해야 함 
+	 -->
+	 
+	 
+	<form name = "guestboard" method ="get" action="save02.jsp" >
+	<table border="1" width = "600px">
+	
+		<tr> <td> 이름 : </td> 
+			<td> <input type="text", name="name" > </td>  </tr>
+			
+		<tr> <td> E-mail : </td> 
+			<td> <input type="text", name="email" > </td>  </tr>
+			
+		<tr> <td> 제목 : </td> 
+			<td> <input type="text", name="subject" > </td> </tr>
+			
+		<tr> <td> 내용 : </td> 
+			<td> <textarea rows="10" cols="65" name ="contents"></textarea> </td> </tr>
+			
+		<tr> <td colspan = "2" align = "right" > 
+				<input type = "reset" values = "리셋" >
+				<input type = "submit" values = "전송" >
+			</td> 
+			
+		</tr>
+	</table>
+	</form>
+	<p>
+	<hr>
+	<p>
+	
+	</table>
+	</center>
+
+ <!-- 
+		html space, enter 작동 안 됨
+			&nbsp; = space
+			<br> = enter
+ 
+
+ -->
+ 
+ <br> <br> <br> 
+ <hr> 
+<center>
+		오늘은&nbsp;&nbsp;&nbsp;&nbsp;backend의&nbsp;&nbsp;&nbsp;&nbsp;jsp를
+		<br><br><br> 
+		
+		배웁니다
+</center>
+<br> <br> <br> 
+<hr> 
+
+
+</body>
+</html>
