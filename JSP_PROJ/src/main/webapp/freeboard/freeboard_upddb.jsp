@@ -32,7 +32,7 @@
 </head>
 <body>
 
-[ <A href = "freeboard_list.jsp?go=<%= p %>" > 게시판 목록으로 </A>]
+[ <A href = "freeboard_list03.jsp?go=<%= p %>" > 게시판 목록으로 </A>]
 
 <%
 	String sql = null; 

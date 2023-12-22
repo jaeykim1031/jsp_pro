@@ -117,7 +117,7 @@
 	int priorpage = where -1 ; 
 	int startrow = 0; 			//하나의 page에서 레코드 시작 번호 
 	int endrow = 0; 			//하나의 page에서 레코드 마지막 번호 
-	int maxrow = 20; 			//한페이지 내에 출력할 행의 갯수 (row, 행,레코드 갯수)
+	int maxrow = 10; 			//한페이지 내에 출력할 행의 갯수 (row, 행,레코드 갯수)
 	int totalrows = 0; 			// DB에서 select 한 총 레코드 갯수 
 	int totalpages = 0 ; 		// 총 페이지 갯수 
 	
@@ -194,7 +194,7 @@
 		//if (true) return;
 		
 		
-	//행당 페이지를 처리하면서 해당 페이지에 대한 내용을 출력 (rs의 값을 vector에 저장했으므로 for )
+	//해당 페이지를 처리하면서 해당 페이지에 대한 내용을 출력 (rs의 값을 vector에 저장했으므로 for )
 	for ( int j = startrow ; j <= endrow ; j++){
 	
 	
@@ -203,7 +203,7 @@
   <tr>
   	<td> <%= keyid.elementAt(j) %> </td>
   	<td><a href="freeboard_read.jsp?id=<%= keyid.elementAt(j) %>&page=<%= where %>"> 
-  			<%= subject.elementAt(j) %>  </a> </td>
+  			<%= subject.elementAt(j) %>  </a> </td>			<!-- <a>로 링크 -->
   	<td> <%= name.elementAt(j) %></td>
   	<td> <%= inputdate.elementAt(j) %></td>
   	<td> <%= readcount.elementAt(j) %></td>

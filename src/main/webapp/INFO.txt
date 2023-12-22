@@ -1,0 +1,125 @@
+
+MVC M1 : *.jsp <== Model, view, controller 
+			- Java + HTML 
+			- 코드가 복잡하다. 
+			- 쉽게 개발 할 수 있다. 
+			- 혼자 개발, 소규모 개발, 협업해서 개발 하기 어렵다. 
+			- 중복 코드가 많이 발생 
+			- 유지 보수 하기 어렵다. , DB 컬럼 추가, 컬럼이름 수정, 컬럼이름 삭제, 컬럼의 자료형 변경 
+
+ MVC (Model, View, Controller )  : M, V, C 분리해서 개발 하는 환경 
+    - 초창기 개발이 조금 어려울 수 있다. 
+ 	- 중.대규모 사이트 
+ 	- 협업 개발 
+ 	- 유지 보수하기 쉽다.  <== 다른 개발자가 개발한 코드도 쉽게 이해 할 수 있다. 
+
+    - MVC 로 개발, MVC M2 
+    
+ 	- Model : 비즈니스 로직을 처리하는 부분 , DataBase 값을 넣고, 가지고 오고. 
+ 		- DAO ( Data Access Object ) : DB에 SQL 쿼리를 보내는 객체
+ 		- DTO ( Data Transfer Object ) : 데이터를 client ==> dto ==> DAO => DB   
+ 	- Controller : Client 의 요청을 처리하는 클래스 , 
+ 		- JSP (서블릿으로 컨트롤로 생성 ) 
+ 		- web.xml 셋팅 
+ 		- 어노테이션으로 셋팅 : @Websevlet 
+ 		
+ 		- 1. 클라언트의 요청을 받는다. 
+ 		- 2. DTO, DAO 에게 일을 시킨다. 	<-- 비즈니스 로직 처리 
+ 		- 3. View 페이지를 client 에게 전송 함.  
+ 		
+ 		
+ 	- View : 화면에 출력되는 페이지 , html, jsp 
+ 		- View 페이지가 깔끔해 진다.  
+ 		
+ ========================================================
+ 1. DB 연결 클래스 생성 : Connection 객체 사용할 DB 연결
+ 	- common.JDBCUtill.java
+  
+ 2. DB(Oracle)에 개발할 테이블 생성 (MVC)
+  	- users		: 사용자 정보, admin
+  	- board		: userm admin 게시판
+  	- product	: admin only
+
+----------------------------------------------------------------------------
+
+-- MVC 테이블 (oracle)
+
+CREATE table board(
+    seq number(5) not null PRIMARY key,
+    title varchar2(200) null,
+    write varchar2(20) null,
+    content VARCHAR2(2000) null,
+    regdate date default sysdate null,
+    cnt number(5) DEFAULT 0 null
+);
+
+CREATE table users(
+    id VARCHAR2(8) not null PRIMARY key,
+    password VARCHAR2(8) null,
+    name VARCHAR2(20) null,
+    role VARCHAR2(5) 
+);
+
+CREATE TABLE products(
+    p_code number(5) not null PRIMARY KEY,
+    p_name VARCHAR2(200) NULL,
+    p_kind char(1) null,
+    p_price VARCHAR2(10) NULL,
+    p_content VARCHAR2(2000) NULL,
+    p_quantity VARCHAR2(5) NULL,
+    indate date default sysdate null
+
+);
+
+--- dummy data
+
+insert into board
+values(1, 'MVC M2 제목', 'admin', 'MVC M2 내용 ', DEFAULT, 0 );
+insert into board
+values(2, 'MVC M2 제목', 'user', 'MVC M2 내용 ', DEFAULT, 0 );
+
+commit;
+SELECT * from board;
+
+
+insert into users
+values('admin', '1234' , '관리자', 'Admin');
+insert into users
+values('users', '1234' , '사용자', 'Users');
+
+commit;
+SELECT * from users;
+
+-------------------------------------------------------------  	
+  	
+ 3. Controller : 서블릿으로 생성 
+ 	  - 서블릿 : *.java  ===> 웹페이지로 출력 ,   jsp 의 <%   %>  --톰캣-->  서블릿 으로 변환후 출력 	
+ 	  - 작동 : 
+ 	  		- web.xml 설정 : 클라이언트 요청에 대한 controller mapping ( 잘 안씀 )
+ 	  		- Annotation - @Webservlet ("*.do")
+ 	  	
+ 	  	- doGet ( Request req, Response resp ) : 클라가 보내는 get 요청을 받는 메서드
+ 	  	
+ 	  	- doPost ( Request req, Response resp ) : 
+ 	  
+ 	  
+ 	  	
+ 	  클라가 서버에게 요청
+ 	  	- get : URL 통해 요청, form method = "get"
+ 	  			- URL 뒤에 요청 정보 보냄, 용량 제한 있음
+ 	  	- post : form method = "post"
+ 	  			- http 헤더 앞에 파라미터를 서버로 보냄
+ 	  
+ 4. DTO 생성 
+ 
+ 5. DAO 생성 
+ 
+ 6. View 페이지 생성 
+ 
+ 
+ 
+ 		
+ 		
+ 		
+ 	
+ 	 
