@@ -11,9 +11,9 @@ public class Board_Insert_Test {
 		BoardDTO dto = new BoardDTO();
 		
 			// dto에 setter를 사용해서 값 입력
-			dto.setTitle("TEST TITLE 1 ");
-			dto.setWirte("user");
-			dto.setContent("TEST CONTENT");
+			dto.setTitle("TEST TITLE 2 ");
+			dto.setWrite("user2");
+			dto.setContent("TEST CONTENT2231312");
 		
 		// 2. DAO 객체에 insertBoard(dto)
 		BoardDAO dao = new BoardDAO();

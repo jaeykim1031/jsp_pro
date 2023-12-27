@@ -17,7 +17,7 @@ public class BoardDTO {
 	
 	private int seq;
 	private String title;
-	private String wirte;
+	private String write;
 	private String content;
 	private Date regdate;
 	private int cnt;
