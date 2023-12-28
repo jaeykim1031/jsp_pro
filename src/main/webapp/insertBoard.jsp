@@ -36,6 +36,10 @@
 			</table>
 		
 		</form>
+		
+		<p /> <a href="index.jsp"> 홈으로 </a>
+		<p /> <a href="getBoardList.jsp"> 글 목록 </a>
+		
 	</center>
 
 

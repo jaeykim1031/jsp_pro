@@ -127,11 +127,13 @@ SELECT * from users;
  
  =======================================================================
  
+ ctrl + shift + f : 자동 정렬
  
- 
- 
+ 			client (View) 	-> 	*.do 요청 	->	 controller (1. 요청, 2.로직(DAO, DTO) 3. 뷰)
+ html, jsp(서버에서 렌더링)
  		
  		
+MVC 환경에서 CRUD 
  		
  	
  	 

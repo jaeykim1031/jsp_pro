@@ -1,0 +1,66 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+    <%
+    	// 세션 변수의 값 읽어오기
+    	
+    	String sessionId = (String) session.getAttribute("id");
+    	String sessionRole = (String) session.getAttribute("role");
+    %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+		<h1> 로그인 폼 페이지 </h1>
+		<hr>
+		<p />
+		
+		<%
+			if (sessionId == null) { // 로그인 되지 않은 상태
+				
+		%>
+		
+		<form method="post" action = "login.us" >
+			<table>
+				<tr> <td> ID :  </td> 
+					<td> <input type = "text" name = "id"> </td> 
+				</tr>
+	 			
+				<tr> <td> Password :  </td> 
+					<td> <input type = "password" name = "password"> </td> 
+				</tr>
+				
+				<tr> 
+					<td colspan = "2" align = "center"> <input type = "submit" value = "로그인"> </td> 
+				</tr>
+				
+				
+		
+		</table>		
+		</form>
+
+		<p /> <a href="index.jsp"> 홈으로 </a>
+	<%
+	
+		} else{ // 로그인 된 상태
+	
+	%>
+		<%= sessionId %> 님 로그인 성공 <p />
+		현재 권한은 <%= sessionRole %> 입니다
+		
+		<a href = "logout.us" > 로그아웃 </a>
+
+	<%
+	
+		}
+	
+	
+	%>
+
+
+
+</body>
+</html>
