@@ -74,7 +74,8 @@ board = (BoardDTO) session.getAttribute("board"); // 다운 캐스팅
 		<p /> <a href="getBoardList.jsp"> 글 목록 </a>
 		<p /> <a = href="insertBoard.jsp"> 새 글 쓰기</a>
 		
-	</center>
 
 </body>
+	</center>
+
 </html>

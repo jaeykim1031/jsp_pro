@@ -91,7 +91,7 @@ public class Board_Controller extends HttpServlet {
 			// boardList : DB의 Board 테이블 레코드를 dto로 저장 후 ArrayList 내의 각 방에 저장
 			boardList = dao.getBoardList(dto);
 
-			// boardList 클라이언트 view 페이지로 전송 : Session 병수에 담아서 클라이언트 뷰페이지로 전송
+			// boardList 클라이언트 view 페이지로 전송 : Session 변수에 담아서 클라이언트 뷰페이지로 전송
 			// 클라이언트의 세션 정보를 가져와 세션 변수에 할당
 			HttpSession session = request.getSession();
 

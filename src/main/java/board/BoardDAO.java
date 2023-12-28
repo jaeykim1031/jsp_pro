@@ -26,7 +26,7 @@ public class BoardDAO {
 	private final String BOARD_GET = "select * from board where seq = ?";
 	
 	// DB의 업데이트 쿼리
-	private final String BOARD_UPDATE = "update board set title = ?, write = ?, content = ? where seq = ?";
+	private final String BOARD_UPDATE = "update board set title = ?, write = ?, cont = ? where seq = ?";
 	
 	// Board 테이블의 레코드 삭제
 	private final String BOARD_DELETE = "delete board where seq = ?";
@@ -229,7 +229,5 @@ public class BoardDAO {
 			JDBCUtil.close(pstmt, conn);
 			
 		}
-		
 	}
-	
 }
