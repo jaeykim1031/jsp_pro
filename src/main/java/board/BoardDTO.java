@@ -1,6 +1,7 @@
 package board;
 
 import java.sql.Date;
+
 import lombok.Data;
 
 @Data
@@ -21,4 +22,10 @@ public class BoardDTO {
 	private String content;
 	private Date regdate;
 	private int cnt;
+	
+	// 검색 기능 필드 추가
+	// searchCondition : TITLE WRITE CONTENT REGDATE
+	private String searchCondition;
+	private String searchKeyword;
+	
 }

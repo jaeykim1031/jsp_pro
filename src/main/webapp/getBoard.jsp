@@ -30,30 +30,30 @@ board = (BoardDTO) session.getAttribute("board"); // 다운 캐스팅
 		
 			<table border="1" width="700px" cellpadding="5px">
 				<tr>
-					<td bgcolor="blue" align="center">제목</td>
+					<td bgcolor="lightblue" align="center">제목</td>
 					<td><input type="text" name="title"
 						value="<%=board.getTitle()%>"></td>
 				</tr>
 
 				<tr>
-					<td bgcolor="blue">작성자</td>
+					<td bgcolor="lightblue">작성자</td>
 					<td><input type="text" name="write"
 						value="<%=board.getWrite()%>"></td>
 				</tr>
 
 				<tr>
-					<td bgcolor="blue">내용</td>
+					<td bgcolor="lightblue">내용</td>
 					<td><textarea rows="10" cols="70"
 							value="<%=board.getContent()%>"></textarea></td>
 				</tr>
 
 				<tr>
-					<td bgcolor="blue">등록일</td>
+					<td bgcolor="lightblue">등록일</td>
 					<td><%=board.getRegdate()%></td>
 				</tr>
 
 				<tr>
-					<td bgcolor="blue">조회수</td>
+					<td bgcolor="lightblue">조회수</td>
 					<td><%=board.getCnt()%></td>
 				</tr>
 

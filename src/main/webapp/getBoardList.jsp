@@ -24,6 +24,23 @@ try {
 	<center>
 		<h1>글 목록</h1>
 		<hr>
+		<!-- 검색 기능 -->
+		<table border="1" width = "700px">
+			<tr> <td>
+				<form method = "post" action = "getBoardList.do">
+					<select name = "searchCondition">
+						<option value = "TITLE"> 제목 검색 </option>
+						<option value = "WRITE"> 글쓴이 검색 </option>
+						<option value = "CONTENT"> 내용 검색 </option>
+			 			<option value = "REGDATE"> 작성일 검색 </option>
+					</select>	
+						
+						<input type = "text" name = "searchKeyword" size = "40"> 
+						<input type = "submit" value = "검색">
+						</form>
+			</td></tr>
+		</table>
+		<!-- 검색 기능 -->
 
 		<table border="1" width="700px">
 			<tr>

@@ -34,7 +34,11 @@ public class BoardDAO {
 	// 조회수 증가 쿼리 
 	private final String ADD_CNT = "update board set cnt = cnt + 1 where seq = ?";
 	
-	
+	// 검색기능 쿼리
+	private final String BOARD_LIST_T = " select * from board where title like '%' ||?|| '%' order by seq desc ";
+	private final String BOARD_LIST_W = " select * from board where write like '%' ||?|| '%' order by seq desc ";
+	private final String BOARD_LIST_C = " select * from board where content like '%' ||?|| '%' order by seq desc "; 
+	private final String BOARD_LIST_R = " select * from board where regdate like '%' ||?|| '%' order by seq desc ";
 	
 	
 	// insertBoard(BoardDTO dto) 메서드 -> 리턴이 필요 없음 
@@ -78,10 +82,35 @@ public class BoardDAO {
 		
 		
 		List<BoardDTO> boardlist = new ArrayList<>();
+		/*
+			BOARD_LIST_T = " select * from board where title like '%' ||?|| '%' order by seq desc ";
+			BOARD_LIST_W = " select * from board where write like '%' ||?|| '%' order by seq desc ";
+			BOARD_LIST_C = " select * from board where content like '%' ||?|| '%' order by seq desc "; 
+			BOARD_LIST_R = " select * from board where regdate like '%' ||?|| '%' order by seq desc ";
+		 */
+		
+		// 검색의 변수 값 확인 
+			System.out.println(" DAO의 getBoardList");
+			System.out.println(dto.getSearchCondition());
+			System.out.println(dto.getSearchKeyword());
 		
 		try {
 			conn = JDBCUtil.getConnection(); 	// conn 객체 활성화 : Oracle ,XE, HR12, 1234
-			pstmt = conn.prepareStatement(BOARD_LIST);
+			// pstmt = conn.prepareStatement(BOARD_LIST);
+			
+			if (dto.getSearchCondition().equals("TITLE")) {
+				pstmt = conn.prepareStatement(BOARD_LIST_T);
+			} else if (dto.getSearchCondition().equals("WRITE")){
+				pstmt = conn.prepareStatement(BOARD_LIST_W);
+			} else if (dto.getSearchCondition().equals("CONTENT")) {
+				pstmt = conn.prepareStatement(BOARD_LIST_C);
+			} else if (dto.getSearchCondition().equals("REGDATE")){
+				pstmt = conn.prepareStatement(BOARD_LIST_R);
+			}
+			// ? 변수 할당
+			pstmt.setString(1, dto.getSearchKeyword());
+			
+			
 			
 			// pstmt를 실행 후 rs에 레코드 저장 
 			rs = pstmt.executeQuery();
