@@ -3,6 +3,7 @@ package Member2;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import Member2.Member2DTO;
 
 import common.JDBCUtil;
 
@@ -12,8 +13,7 @@ public class Member2DAO {
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	
-	private final String MEMBER2_INSERT = 
-			"";
+	private final String MEMBER2_INSERT = "";
 	
 	
 	
